@@ -49,6 +49,7 @@ const authStore = (
   },
   clearUser: async () => {
     await logout();
+    localStorage.clear();
     set((state) => ({
       ...state,
       user_id: null,

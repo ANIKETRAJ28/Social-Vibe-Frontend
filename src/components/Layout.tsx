@@ -23,6 +23,7 @@ import { toast } from "@/hooks/use-toast";
 import { connectSocket } from "@/lib/socket";
 import { IPost } from "@/types";
 import useNotificationStore from "@/store/notification";
+import { logout } from "@/apis/auth";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -114,11 +115,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   };
 
   const handleLogout = async () => {
+    auth.clearUser();
+    localStorage.clear();
     toast({
       title: "Logged out",
       description: "You have successfully logged out.",
     });
-    localStorage.clear();
     navigate("/login");
   };
 
