@@ -114,11 +114,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   };
 
   const handleLogout = async () => {
-    await auth.clearUser();
     toast({
       title: "Logged out",
       description: "You have successfully logged out.",
     });
+    localStorage.clear();
     navigate("/login");
   };
 
