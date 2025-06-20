@@ -39,7 +39,6 @@ const Home: React.FC = () => {
 
   const fetchPosts = async () => {
     const data: IPost[] = await getAllPosts(limit, offset);
-    console.log("Fetched posts:", data);
     setIsLoading(true);
     if (data.length === 0) {
       window.removeEventListener("scroll", handleInfiniteScroll);
